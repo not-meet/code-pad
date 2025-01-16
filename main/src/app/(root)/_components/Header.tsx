@@ -1,20 +1,22 @@
-import { currentUser } from '@clerk/nextjs/server';
-import { ConvexHttpClient } from 'convex/browser'
-import React from 'react'
-import { api } from '../../../../convex/_generated/api';
-import Link from 'next/link';
-import { Blocks, Code2, Sparkles } from 'lucide-react';
-import { SignedIn } from '@clerk/nextjs';
-import ThemeSelector from './ThemeSelector';
-import LanguageSelector from './LanguageSelector';
-import HeaderProfileBtn from './HeaderProfileBtn';
-import RunButton from './RunButton';
+import { currentUser } from "@clerk/nextjs/server";
+import { ConvexHttpClient } from "convex/browser";
+import { api } from "../../../../convex/_generated/api";
+import Link from "next/link";
+import { Blocks, Code2, Sparkles } from "lucide-react";
+import { SignedIn } from "@clerk/nextjs";
+import ThemeSelector from "./ThemeSelector";
+import LanguageSelector from "./LanguageSelector";
+import RunButton from "./RunButton";
+import HeaderProfileBtn from "./HeaderProfileBtn";
 
-const Header = async () => {
+async function Header() {
   const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
   const user = await currentUser();
-  const convexUser = await convex.query(api.users.getUser, { userId: user?.id || '', })
-  console.log({ convexUser })
+
+  const convexUser = await convex.query(api.users.getUser, {
+    userId: user?.id || "",
+  });
+
   return (
     <div className="relative z-10">
       <div
@@ -40,7 +42,7 @@ const Header = async () => {
 
             <div className="flex flex-col">
               <span className="block text-lg font-semibold bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 text-transparent bg-clip-text">
-                CodePad
+                CodeCraft
               </span>
               <span className="block text-xs text-slate-400/60 font-medium">
                 Interactive Code Editor
@@ -48,6 +50,7 @@ const Header = async () => {
             </div>
           </Link>
 
+          {/* Navigation */}
           <nav className="flex items-center space-x-1">
             <Link
               href="/snippets"
@@ -68,6 +71,7 @@ const Header = async () => {
             </Link>
           </nav>
         </div>
+
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-3">
             <ThemeSelector />
@@ -98,9 +102,6 @@ const Header = async () => {
         </div>
       </div>
     </div>
-
-
-  )
+  );
 }
-
-export default Header
+export default Header;

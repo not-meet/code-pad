@@ -9,7 +9,7 @@ import { RotateCcwIcon, ShareIcon, TypeIcon } from "lucide-react";
 import { useClerk } from "@clerk/nextjs";
 import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
 import useMounted from "@/hooks/useMounted";
-// import ShareSnippetDialog from "./ShareSnippetDialog";
+import ShareSnippetDialog from "./ShareSnippetDialog";
 
 function EditorPanel() {
   const clerk = useClerk();
@@ -72,7 +72,7 @@ function EditorPanel() {
                   max="24"
                   value={fontSize}
                   onChange={(e) => handleFontSizeChange(parseInt(e.target.value))}
-                  className="w-20 h-1 bg-gray-900 rounded-lg cursor-pointer"
+                  className="w-20 h-1 bg-gray-600 rounded-lg cursor-pointer"
                 />
                 <span className="text-sm font-medium text-gray-400 min-w-[2rem] text-center">
                   {fontSize}
@@ -96,7 +96,7 @@ function EditorPanel() {
               whileTap={{ scale: 0.98 }}
               onClick={() => setIsShareDialogOpen(true)}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg overflow-hidden bg-gradient-to-r
-               from-purple-500 to-purple-800 opacity-90 hover:opacity-100 transition-opacity"
+               from-blue-500 to-blue-600 opacity-90 hover:opacity-100 transition-opacity"
             >
               <ShareIcon className="size-4 text-white" />
               <span className="text-sm font-medium text-white ">Share</span>
@@ -141,7 +141,7 @@ function EditorPanel() {
           {!clerk.loaded && <EditorPanelSkeleton />}
         </div>
       </div>
-      {/* {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />} */}
+      {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />}
     </div>
   );
 }
