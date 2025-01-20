@@ -42,10 +42,10 @@ async function Header() {
 
             <div className="flex flex-col">
               <span className="block text-lg font-semibold bg-gradient-to-r from-purple-400 via-purple-300 to-purple-400 text-transparent bg-clip-text">
-                CodeCraft
+                CodePad
               </span>
-              <span className="block text-xs text-slate-400/60 font-medium">
-                Interactive Code Editor
+              <span className="block text-xs text-gray-400/60 font-medium">
+                A better online code editor
               </span>
             </div>
           </Link>

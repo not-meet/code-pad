@@ -1,6 +1,6 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import CopyButton from "./CopyButton";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import CopyButton from "./CopyButton";
 
 const CodeBlock = ({ language, code }: { language: string; code: string }) => {
   const trimmedCode = code

@@ -2,26 +2,27 @@
 
 import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
-import { api } from "../../../../../convex/_generated/api";
+import SnippetLoadingSkeleton from "./_components/SnippetLoadingSkeleton";
 import NavigationHeader from "@/components/NavigationHeader";
 import { Clock, Code, MessageSquare, User } from "lucide-react";
 import { Editor } from "@monaco-editor/react";
 import { defineMonacoThemes, LANGUAGE_CONFIG } from "@/app/(root)/_constants";
-import SnippetLoadingSkeleton from "./_components/SnippetsLoadingSkeleton";
-import { Id } from "../../../../../convex/_generated/dataModel";
 import CopyButton from "./_components/CopyButton";
 import Comments from "./_components/Comments";
+import { api } from "../../../../../convex/_generated/api";
+import { Id } from "../../../../../convex/_generated/dataModel";
+
 
 function SnippetDetailPage() {
   const snippetId = useParams().id;
 
-  const snippet = useQuery(api.snippets.getSnippetsById, { snippetId: snippetId as Id<"snippets"> });
+  const snippet = useQuery(api.snippets.getSnippetById, { snippetId: snippetId as Id<"snippets"> });
   const comments = useQuery(api.snippets.getComments, { snippetId: snippetId as Id<"snippets"> });
 
   if (snippet === undefined) return <SnippetLoadingSkeleton />;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-screen bg-gradient-to-b from-black-800 to-black-950">
       <NavigationHeader />
 
       <main className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">

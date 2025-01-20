@@ -2,7 +2,6 @@
 import { Snippet } from "@/types";
 import { useUser } from "@clerk/nextjs";
 import { useMutation } from "convex/react";
-import { api } from "../../../../../convex/_generated/api";
 import { useState } from "react";
 
 import { motion } from "framer-motion";
@@ -11,6 +10,7 @@ import { Clock, Trash2, User } from "lucide-react";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import StarButton from "@/components/StarButton";
+import { api } from "../../../../../convex/_generated/api";
 
 function SnippetCard({ snippet }: { snippet: Snippet }) {
   const { user } = useUser();

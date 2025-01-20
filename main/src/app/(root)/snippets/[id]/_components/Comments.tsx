@@ -1,15 +1,15 @@
-import { SignInButton, useUser } from "@clerk/nextjs"
-import { Id } from "../../../../../../convex/_generated/dataModel"
-import { useState } from "react"
-import { useMutation, useQuery } from "convex/react"
-import { api } from "../../../../../../convex/_generated/api"
-import toast from "react-hot-toast"
-import { MessageSquare } from "lucide-react"
-import Comment from "./Comment"
-import CommentForm from "./CommentForm"
+import { SignInButton, useUser } from "@clerk/nextjs";
+import { useState } from "react";
+import { useMutation, useQuery } from "convex/react";
+import toast from "react-hot-toast";
+import { MessageSquare } from "lucide-react";
+import Comment from "./Comment";
+import CommentForm from "./CommentForm";
+import { api } from "../../../../../../convex/_generated/api";
+import { Id } from "../../../../../../convex/_generated/dataModel";
 
-const Comments = ({ snippetId }: { snippetId: Id<'snippets'> }) => {
-  const { user } = useUser()
+function Comments({ snippetId }: { snippetId: Id<"snippets"> }) {
+  const { user } = useUser();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [deletinCommentId, setDeletingCommentId] = useState<string | null>(null);
 
@@ -23,26 +23,25 @@ const Comments = ({ snippetId }: { snippetId: Id<'snippets'> }) => {
     try {
       await addComment({ snippetId, content });
     } catch (error) {
-      console.log('something went wrong', error);
-      toast.error('something went wrong')
+      console.log("Error adding comment:", error);
+      toast.error("Something went wrong");
     } finally {
       setIsSubmitting(false);
     }
-  }
+  };
 
-
-  const handleDeleteComment = async (commentId: Id<'snippetComments'>) => {
+  const handleDeleteComment = async (commentId: Id<"snippetComments">) => {
     setDeletingCommentId(commentId);
 
     try {
       await deleteComment({ commentId });
     } catch (error) {
-      console.log('something went wrong', error)
-      toast.error('something went wrong')
+      console.log("Error deleting comment:", error);
+      toast.error("Something went wrong");
     } finally {
-      setDeletingCommentId(null)
+      setDeletingCommentId(null);
     }
-  }
+  };
 
   return (
     <div className="bg-[#121218] border border-[#ffffff0a] rounded-2xl overflow-hidden">
@@ -80,7 +79,6 @@ const Comments = ({ snippetId }: { snippetId: Id<'snippets'> }) => {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-export default Comments
+export default Comments;

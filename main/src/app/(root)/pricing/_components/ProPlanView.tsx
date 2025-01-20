@@ -13,7 +13,7 @@ function ProPlanView() {
           <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/30 to-purple-500/30 blur-2xl opacity-10" />
 
           <div className="relative bg-[#12121a]/90 border border-gray-800/50 backdrop-blur-2xl rounded-2xl p-12">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] to-purple-500/[0.05] rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.05] to-purple-700/[0.05] rounded-2xl" />
 
             <div className="relative">
               <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 mb-6 ring-1 ring-gray-800/60">

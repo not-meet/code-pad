@@ -11,7 +11,6 @@ import UpgradeButton from "./_components/UpgradeButton";
 import LoginButton from "@/components/LoginButton";
 import { api } from "../../../../convex/_generated/api";
 
-
 async function PricingPage() {
   const user = await currentUser();
   const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
@@ -58,10 +57,10 @@ async function PricingPage() {
               >
                 <div className="relative">
                   <div
-                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 
-                  flex items-center justify-center mb-4 ring-1 ring-gray-800/60 group-hover:ring-blue-500/20"
+                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-purple-600/10 
+                  flex items-center justify-center mb-4 ring-1 ring-gray-800/60 group-hover:ring-purple-600/20"
                   >
-                    <feature.icon className="w-6 h-6 text-blue-400" />
+                    <feature.icon className="w-6 h-6 text-purple-400" />
                   </div>
 
                   <h3 className="text-lg font-medium text-white mb-2">{feature.label}</h3>
@@ -89,7 +88,7 @@ async function PricingPage() {
                 {/* header */}
                 <div className="text-center mb-12">
                   <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 ring-1 ring-gray-800/60 mb-6">
-                    <Star className="w-8 h-8 text-blue-400" />
+                    <Star className="w-8 h-8 text-purple-400" />
                   </div>
                   <h2 className="text-3xl font-semibold text-white mb-4">Lifetime Pro Access</h2>
                   <div className="flex items-baseline justify-center gap-2 mb-4">

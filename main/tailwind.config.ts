@@ -12,6 +12,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         'black': {
+          800: "#05010a",
           900: '#110320',
           950: '#040606',
         }

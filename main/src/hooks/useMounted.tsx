@@ -1,13 +1,13 @@
-'use client'
-import React, { useEffect, useState } from 'react'
+"use client";
+import { useEffect, useState } from "react";
 
 const useMounted = () => {
-  const [mounted, setIsMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    setMounted(true);
   }, []);
-  return mounted;
-}
 
-export default useMounted
+  return mounted;
+};
+export default useMounted;

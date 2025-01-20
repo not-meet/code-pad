@@ -19,10 +19,11 @@ function StarButton({ snippetId }: { snippetId: Id<"snippets"> }) {
   return (
     <button
       className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-lg 
-    transition-all duration-200 ${isStarred
-          ? "bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20"
-          : "bg-gray-500/10 text-gray-400 hover:bg-gray-500/20"
-        }`}
+    transition-all duration-200 ${
+      isStarred
+        ? "bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20"
+        : "bg-gray-500/10 text-gray-400 hover:bg-gray-500/20"
+    }`}
       onClick={handleStar}
     >
       <Star

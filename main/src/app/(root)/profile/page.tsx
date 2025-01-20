@@ -14,7 +14,6 @@ import StarButton from "@/components/StarButton";
 import CodeBlock from "./_components/CodeBlock";
 import { api } from "../../../../convex/_generated/api";
 
-
 const TABS = [
   {
     id: "executions",
@@ -149,8 +148,8 @@ function ProfilePage() {
                             <div className="flex items-center gap-2">
                               <span
                                 className={`text-xs px-2 py-0.5 rounded-full ${execution.error
-                                  ? "bg-red-500/10 text-red-400"
-                                  : "bg-green-500/10 text-green-400"
+                                    ? "bg-red-500/10 text-red-400"
+                                    : "bg-green-500/10 text-green-400"
                                   }`}
                               >
                                 {execution.error ? "Error" : "Success"}

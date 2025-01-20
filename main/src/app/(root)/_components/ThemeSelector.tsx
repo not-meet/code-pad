@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { useCodeEditorStore } from "@/store/useCodeEditorStore";
 import React, { useEffect, useRef, useState } from "react";
 import { THEMES } from "../_constants";

@@ -1,26 +1,30 @@
-import { Check, Copy } from "lucide-react";
-import React, { useState } from "react"
+"use client";
 
-const CopyButton = ({ code }: { code: string }) => {
-  const [isCopied, setIsCopied] = useState(false);
-  const copyToClipBoard = async () => {
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
+
+function CopyButton({ code }: { code: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
     await navigator.clipboard.writeText(code);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000)
-  }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <button
-      onClick={copyToClipBoard}
+      onClick={copyToClipboard}
       type="button"
       className="p-2 hover:bg-white/10 rounded-lg transition-all duration-200 group relative"
     >
-      {isCopied ? (
+      {copied ? (
         <Check className="size-4 text-green-400" />
       ) : (
         <Copy className=" size-4 text-gray-400 group-hover:text-gray-300" />
       )}
     </button>
-  )
+  );
 }
 
-export default CopyButton
+export default CopyButton;

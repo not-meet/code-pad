@@ -1,33 +1,33 @@
-'use client'
+"use client";
 
 import { useQuery } from "convex/react";
 import { useState } from "react";
 import SnippetsPageSkeleton from "./_components/SnippetsPageSkeleton";
 import NavigationHeader from "@/components/NavigationHeader";
-import { api } from "../../../../convex/_generated/api";
+
+
 import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, Code, Grid, Layers, Search, Tag, X } from "lucide-react";
 import SnippetCard from "./_components/SnippetCard";
+import { api } from "../../../../convex/_generated/api";
 
-
-const SnippetsPage = () => {
-
-  const snippets = useQuery(api.snippets.getSnippets)
-  const [searchQuery, setSearchQuery] = useState('')
+function SnippetsPage() {
+  const snippets = useQuery(api.snippets.getSnippets);
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
-  const [view, setView] = useState<'grid' | 'list'>('grid');
+  const [view, setView] = useState<"grid" | "list">("grid");
 
-  //loading state 
+  // loading state
   if (snippets === undefined) {
     return (
       <div className="min-h-screen">
         <NavigationHeader />
         <SnippetsPageSkeleton />
       </div>
-    )
+    );
   }
 
-  const languages = [...new Set(snippets.map((s) => s.language))]
+  const languages = [...new Set(snippets.map((s) => s.language))];
   const popularLanguages = languages.slice(0, 5);
 
   const filteredSnippets = snippets.filter((snippet) => {
@@ -39,9 +39,10 @@ const SnippetsPage = () => {
     const matchesLanguage = !selectedLanguage || snippet.language === selectedLanguage;
 
     return matchesSearch && matchesLanguage;
-  })
+  });
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-screen bg-gradient-to-b from-black-800 to-black-950">
       <NavigationHeader />
 
       <div className="relative max-w-7xl mx-auto px-4 py-12">
@@ -54,7 +55,7 @@ const SnippetsPage = () => {
              from-blue-500/10 to-purple-500/10 text-sm text-gray-400 mb-6"
           >
             <BookOpen className="w-4 h-4" />
-            Code Library !
+            Community Code Library
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -70,7 +71,7 @@ const SnippetsPage = () => {
             transition={{ delay: 0.2 }}
             className="text-lg text-gray-400 mb-8"
           >
-            Explore a curated collection of code snippets from other devs!
+            Explore a curated collection of code snippets from the community
           </motion.p>
         </div>
 
@@ -213,7 +214,6 @@ const SnippetsPage = () => {
         )}
       </div>
     </div>
-  )
+  );
 }
-
-export default SnippetsPage
+export default SnippetsPage;

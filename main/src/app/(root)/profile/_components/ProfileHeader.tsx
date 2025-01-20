@@ -1,9 +1,11 @@
 import { useQuery } from "convex/react";
 import { Activity, Code2, Star, Timer, TrendingUp, Trophy, UserIcon, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+
+
 import { UserResource } from "@clerk/types";
-import { Id } from "../../../../../convex/_generated/dataModel";
 import { api } from "../../../../../convex/_generated/api";
+import { Id } from "../../../../../convex/_generated/dataModel";
 
 interface ProfileHeaderProps {
   userStats: {
